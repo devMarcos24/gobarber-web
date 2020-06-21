@@ -7,6 +7,7 @@ interface AuthState {
 }
 
 interface SignInCreadetials {
+  name?: string;
   email: string;
   password: string;
 }
@@ -50,7 +51,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     localStorage.removeItem('@GoBarber:user');
 
     signIn({} as AuthState);
-  }, []);
+  }, [signIn]);
 
   return (
     <AuthContext.Provider value={{ user: data.user, signIn, signOut }}>
